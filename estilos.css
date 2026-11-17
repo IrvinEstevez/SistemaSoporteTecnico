@@ -1,0 +1,260 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f1f5fa;
+    color: #25364b;
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+}
+
+header {
+    background: #183c63;
+    color: white;
+    text-align: center;
+    padding: 24px 12px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 25px;
+}
+
+header p {
+    margin: 7px 0 0;
+    font-size: 14px;
+}
+
+nav {
+    background: white;
+    padding: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    border-bottom: 1px solid #dce5ef;
+}
+
+nav a {
+    color: #254b73;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 7px 11px;
+    border-radius: 5px;
+}
+
+nav a:hover,
+nav a.activo {
+    background: #e5eef9;
+}
+
+main {
+    max-width: 1100px;
+    margin: 25px auto;
+    padding: 0 15px;
+}
+
+h2 {
+    color: #183c63;
+    font-size: 23px;
+    margin: 0 0 15px;
+}
+
+h3 {
+    color: #24496d;
+    font-size: 18px;
+    margin: 0 0 18px;
+}
+
+.intro {
+    margin-top: -5px;
+    color: #566a80;
+}
+
+.tarjeta {
+    background: #fff;
+    border: 1px solid #e0e7f0;
+    border-radius: 8px;
+    padding: 22px;
+    margin-bottom: 18px;
+}
+
+.tarjetas-inicio {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 14px;
+    margin: 22px 0;
+}
+
+.resumen {
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.resumen h3 {
+    margin-bottom: 8px;
+}
+
+.resumen strong {
+    font-size: 30px;
+    color: #2565a3;
+}
+
+.resumen span {
+    color: #687a90;
+    font-size: 13px;
+}
+
+.formulario {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cbd7e5;
+    border-radius: 5px;
+    font: inherit;
+    background: white;
+    color: #25364b;
+}
+
+.campo textarea {
+    resize: vertical;
+    min-height: 78px;
+}
+
+.acciones {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+button,
+.boton {
+    display: inline-block;
+    background: #2567a8;
+    color: white;
+    border: 0;
+    border-radius: 5px;
+    padding: 10px 16px;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+button:hover,
+.boton:hover {
+    filter: brightness(.92);
+}
+
+.secundario {
+    background: #e5ebf1;
+    color: #344a61;
+}
+
+.peligro {
+    background: #a83e43;
+}
+
+.tabla-contenedor {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 11px;
+    border-bottom: 1px solid #e4eaf1;
+    vertical-align: top;
+}
+
+th {
+    background: #f4f7fb;
+    color: #264b70;
+}
+
+.opciones-tabla {
+    white-space: nowrap;
+}
+
+.opciones-tabla a {
+    margin-right: 12px;
+    color: #2466aa;
+}
+
+.opciones-tabla .eliminar {
+    color: #a83e43;
+}
+
+.mensaje {
+    padding: 12px 14px;
+    border-radius: 5px;
+    margin-bottom: 17px;
+}
+
+.exito {
+    background: #edf7ef;
+    color: #246445;
+}
+
+.error {
+    background: #fff0f0;
+    color: #a03434;
+}
+
+.confirmar {
+    border-color: #e2b3b3;
+}
+
+.vacio {
+    text-align: center;
+    color: #6a7b8e;
+    margin: 22px 0 4px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #697c92;
+    font-size: 13px;
+}
+
+@media (max-width: 650px) {
+    header h1 {
+        font-size: 20px;
+    }
+
+    .formulario {
+        grid-template-columns: 1fr;
+    }
+
+    .tarjeta {
+        padding: 15px;
+    }
+}

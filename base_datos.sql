@@ -1,0 +1,52 @@
+CREATE DATABASE IF NOT EXISTS soporte_tecnico
+  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+USE soporte_tecnico;
+
+CREATE TABLE IF NOT EXISTS usuarios (
+  id_usuario INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(90) NOT NULL,
+  correo VARCHAR(120) NOT NULL UNIQUE,
+  area VARCHAR(80) NOT NULL,
+  estado VARCHAR(20) NOT NULL
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS categorias (
+  id_categoria INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(70) NOT NULL,
+  descripcion VARCHAR(200) NOT NULL,
+  prioridad VARCHAR(15) NOT NULL,
+  estado VARCHAR(20) NOT NULL
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS equipos (
+  id_equipo INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  id_usuario INT UNSIGNED NOT NULL,
+  id_categoria INT UNSIGNED NOT NULL,
+  codigo VARCHAR(30) NOT NULL UNIQUE,
+  estado VARCHAR(25) NOT NULL,
+  CONSTRAINT fk_equipos_usuarios FOREIGN KEY (id_usuario)
+    REFERENCES usuarios (id_usuario) ON UPDATE CASCADE ON DELETE RESTRICT,
+  CONSTRAINT fk_equipos_categorias FOREIGN KEY (id_categoria)
+    REFERENCES categorias (id_categoria) ON UPDATE CASCADE ON DELETE RESTRICT
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS incidencias (
+  id_incidencia INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  id_equipo INT UNSIGNED NOT NULL,
+  fecha DATE NOT NULL,
+  descripcion VARCHAR(300) NOT NULL,
+  estado VARCHAR(20) NOT NULL,
+  CONSTRAINT fk_incidencias_equipos FOREIGN KEY (id_equipo)
+    REFERENCES equipos (id_equipo) ON UPDATE CASCADE ON DELETE RESTRICT
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS seguimientos (
+  id_seguimiento INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  id_incidencia INT UNSIGNED NOT NULL,
+  fecha DATE NOT NULL,
+  observacion VARCHAR(300) NOT NULL,
+  estado VARCHAR(20) NOT NULL,
+  CONSTRAINT fk_seguimientos_incidencias FOREIGN KEY (id_incidencia)
+    REFERENCES incidencias (id_incidencia) ON UPDATE CASCADE ON DELETE RESTRICT
+) ENGINE=InnoDB;
